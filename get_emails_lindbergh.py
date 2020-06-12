@@ -11,7 +11,7 @@ def extract_emails(request_text):
     pattern = re.compile("swrot13\('.*'\)")
     scripts = (soup.find_all("script", text=pattern))
     for script in scripts:
-        matches = re.search(r'\w*@\w*\.\w*', script.text)
+        matches = re.search(r'[\w\.]*@\w*\.\w*', script.text)
         print(codecs.decode(matches.group(0),'rot_13'))
 
 
